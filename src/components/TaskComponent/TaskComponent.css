@@ -1,5 +1,26 @@
 
 .c-task {
-    margin: 15px;
-    font-size: 18px;
+    /* margin: auto; */
+    font-size: 24px;
+    width: 200px;
+    border-bottom: 1px solid gray;
+}
+
+.c-task > input {
+    margin: 0 15px;
+    /* width: 30px; */
+}
+
+.c-task:hover > .fa-times {
+    display: inline;
+}
+
+.fa-times {
+    color: red;
+    display: none;
+}
+
+.done {
+    text-decoration:line-through;
+    color: lightgray;
 }

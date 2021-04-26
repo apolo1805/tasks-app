@@ -8,11 +8,15 @@ function TasksPage(props) {
     const [tasks, setTasks] = React.useState([]);
 
     const tasksList = tasks.map((task,index) => <TaskComponent key={index} taskText={task.text} taskStatus={task.status}/>);
+    const openTasks = tasks.filter(task => !(task.status)).length;
+
 
     function handleClick(e) {
         if (e.charCode === 13) {
-            addTask(e.target.value);
-            e.target.value = "";
+            if (e.target.value !== "") {
+                addTask(e.target.value);
+                e.target.value = "";
+            }
         }
     }
 
@@ -25,6 +29,9 @@ function TasksPage(props) {
             <h1>Todos</h1>
             <input type="text" placeholder="What's next?" onKeyPress={handleClick}/>
             {tasksList}
+            <div>
+                {openTasks > 0 ? openTasks + " Items Left" : ""}
+            </div>
         </Container>
     );
 }
