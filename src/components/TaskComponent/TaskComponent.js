@@ -1,6 +1,5 @@
 import React from 'react';
 import './TaskComponent.css';
-import { Container } from 'react-bootstrap';
 
 function TaskComponent({taskText, taskStatus}) {
     const [isChecked, setCheck] = React.useState(taskStatus);

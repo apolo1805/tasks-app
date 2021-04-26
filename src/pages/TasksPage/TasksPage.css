@@ -1,4 +1,8 @@
 
+.p-tasks {
+    margin: auto;
+}
+
 .p-tasks > input {
     font-size: 20px;
 }
