@@ -2,11 +2,12 @@ import React from 'react';
 import './TasksPage.css';
 import { Container } from 'react-bootstrap';
 import TaskComponent from '../../components/TaskComponent/TaskComponent';
+import TaskModel from '../../models/TaskModel/TaskModel';
 
 function TasksPage(props) {
     const [tasks, setTasks] = React.useState([]);
 
-    const tasksList = tasks.map((task,index) => <TaskComponent key={index} taskText={task}/>);
+    const tasksList = tasks.map((task,index) => <TaskComponent key={index} taskText={task.text} taskStatus={task.status}/>);
 
     function handleClick(e) {
         if (e.charCode === 13) {
@@ -16,7 +17,7 @@ function TasksPage(props) {
     }
 
     function addTask(newTask) {
-        setTasks(tasks.concat(newTask));
+        setTasks(tasks.concat(new TaskModel(newTask, 0)));
     }
 
     return (
