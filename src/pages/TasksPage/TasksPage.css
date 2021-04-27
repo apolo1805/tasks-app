@@ -1,8 +1,24 @@
 
+body {
+    background-image:linear-gradient(to right, #097079,#00d4ff);
+}
+
 .p-tasks {
     margin: auto;
 }
 
 .p-tasks > input {
     font-size: 20px;
+    border-radius: 10px;
+    border: none;
+}
+
+#filterButtons > button {
+    margin: 15px;
+    color: blue;
+}
+
+.remainItems {
+    font-weight: bold;
+    margin: 15px;
 }

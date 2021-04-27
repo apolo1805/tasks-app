@@ -57,7 +57,7 @@ function TasksPage() {
             <h1>Todos</h1>
             <input type="text" placeholder="What's next?" onKeyPress={handleClick}/>
             {filteredTasks}
-            <div>
+            <div className="remainItems">
                 {openTasks > 0 ? openTasks + " Items Left" : ""}
             </div>
             <div id="filterButtons">

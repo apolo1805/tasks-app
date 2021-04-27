@@ -27,7 +27,7 @@ function TaskComponent({taskText, taskStatus, index, toggle, removeTask}) {
 
     return (
         <div className="c-task">
-            <input type="checkbox" checked={taskStatus} onChange={() => onToggle()}/>
+            <input className="checkItem" type="checkbox" checked={taskStatus} onChange={() => onToggle()}/>
             <span className={taskStatus? "done" : ""}>{taskText}</span>
             {/* <i className="fas fa-times" onClick={() => showModal()}></i> */}
             <i className="fas fa-times" onClick={() => showAlert()}></i>

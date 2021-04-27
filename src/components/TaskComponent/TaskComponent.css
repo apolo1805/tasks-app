@@ -2,17 +2,27 @@
 .c-task {
     margin: auto;
     font-size: 24px;
-    width: 200px;
+    width: 500px;
     border-bottom: 1px solid gray;
+    position: relative;
 }
 
 .c-task > input {
     margin: 0 15px;
-    /* width: 30px; */
+    width: 150px;
 }
 
 .c-task:hover > .fa-times {
     display: inline;
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+
+.checkItem {
+  position: absolute;
+  left: 0;
+  top: 10px;
 }
 
 .fa-times {
