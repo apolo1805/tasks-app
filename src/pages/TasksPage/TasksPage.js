@@ -21,18 +21,25 @@ function TasksPage() {
 
     function addTask(newTask) {
         setTasks(tasks.concat(new TaskModel(newTask, false)));
+        setFilter(tasks.map((task, index) => <TaskComponent key={index} taskText={task.text} taskStatus={task.status} index={index} toggle={handleToggle} removeTask={handleRemove}/>));
     }
 
     function showAll() {
         return (
-            tasks.map((task, index) => <TaskComponent key={index} taskText={task.text} taskStatus={task.status} index={index} removeTask={handleRemove}/>)
+            setFilter(tasks.map((task, index) => <TaskComponent key={index} taskText={task.text} taskStatus={task.status} index={index} toggle={handleToggle} removeTask={handleRemove}/>))
         );
     }
 
     function showOpen() {
+        return (
+            setFilter(tasks.filter(task => !(task.status)).map((task, index) => <TaskComponent key={index} taskText={task.text} taskStatus={task.status} index={index} toggle={handleToggle} removeTask={handleRemove}/>))
+        )
     }
 
     function showCompleted() {
+        return (
+            setFilter(tasks.filter(task => (task.status)).map((task, index) => <TaskComponent key={index} taskText={task.text} taskStatus={task.status} index={index} toggle={handleToggle} removeTask={handleRemove}/>))
+        )
     }
 
     function handleRemove(index) {
@@ -49,7 +56,7 @@ function TasksPage() {
         <div className="p-tasks">
             <h1>Todos</h1>
             <input type="text" placeholder="What's next?" onKeyPress={handleClick}/>
-            {tasks.map((task, index) => <TaskComponent key={index} taskText={task.text} taskStatus={task.status} index={index} toggle={handleToggle} removeTask={handleRemove}/>)}
+            {filteredTasks}
             <div>
                 {openTasks > 0 ? openTasks + " Items Left" : ""}
             </div>
