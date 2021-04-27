@@ -43,7 +43,9 @@ function TasksPage() {
     }
 
     function handleRemove(index) {
-        setTasks(tasks.splice(index, 1));
+        const tasksArray = [...tasks];
+        tasksArray.splice(index, 1);
+        setTasks(tasksArray);
     }
 
     function handleToggle(index) {
